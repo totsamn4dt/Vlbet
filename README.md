@@ -40,4 +40,35 @@ async def place_bet(message: types.Message):
     await message.answer("Пока что функция в разработке. Скоро добавим возможность делать ставки!")
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
+    executor.start_polling(dp, skip_updates=True)# TON MiniApp Fullstack Example
+
+## Backend (Express + Telegram Bot + SQLite)
+
+- Папка `backend/` — полноценный Node.js сервер c Telegram-ботом и HTTP API.
+- Для деплоя используйте [Render](https://render.com/) (или Railway/Heroku/VPS).
+- Скрипт `index.js` будет работать 24/7, поддерживать Telegram-бота.
+
+## Frontend (React)
+
+- Папка `frontend/` деплоится через Vercel.
+- UI: проверка баланса, пригласительная ссылка, эмуляция майнинга.
+- Укажите правильный путь на ваш backend в `App.js` (`BACKEND_URL`).
+
+## Как развернуть:
+
+### Backend
+
+1. Создать приложение на [Render](https://render.com/), указать директорию `backend`.
+2. Добавить переменные окружения (`.env`: `TELEGRAM_BOT_TOKEN`, `PORT`).
+3. Deploy — получите публичный адрес, который используйте для frontend.
+
+### Frontend
+
+1. Развернуть на [Vercel](https://vercel.com/) из папки `frontend`.
+2. В `App.js` укажите `BACKEND_URL` (адрес backend Render).
+
+---
+
+**Бот в production на Vercel не поддерживается — используйте отдельный “живой” бэкенд!**
+
+---
